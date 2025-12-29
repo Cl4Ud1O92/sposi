@@ -2,370 +2,150 @@
 <html lang="it-IT">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>I Nostri Sposi - RSVP Dinamico</title>
-  
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500&display=swap" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dosis:wght@400;500&display=swap"></noscript>
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap"></noscript>
-  
-  <!-- Favicon -->
-  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
-  
-  <!-- CSS -->
-  <link href="css/bootstrap.min.css?ver=1.1.0" rel="stylesheet">
-  <link href="css/font-awesome/css/all.min.css?ver=1.1.0" rel="stylesheet">
-  <link href="css/aos.css?ver=1.1.0" rel="stylesheet">
-  <link href="css/ekko-lightbox.css?ver=1.1.0" rel="stylesheet">
-  <link href="css/main.css?ver=1.1.0" rel="stylesheet">
-  
-  <style>
-    .member-row { transition: all 0.3s ease; }
-    .member-row:hover { background: rgba(255,255,255,0.15) !important; transform: translateY(-2px); }
-    .form-switch-lg .form-check-input { width: 3rem; height: 1.75rem; }
-    .form-switch-lg .form-check-label { font-size: 1.2rem; }
-    #rsvp { min-height: 100vh; padding: 100px 0; }
-  </style>
-  
-  <noscript><style>[data-aos] { opacity: 1 !important; transform: translate(0) scale(1) !important; }</style></noscript>
+  <title>RSVP DEBUG</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body id="top">
-  <!-- Preloader -->
-  <div id="preloader"></div>
-
-  <!-- Header + Home -->
-  <header class="header">
-    <div class="page-content">
-      <div class="ww-home-page" id="home">
-        <div class="ww-wedding-announcement d-flex align-items-center justify-content-start">
-          <div class="container ww-announcement-container">
-            <p class="ww-couple-name ww-title" data-aos="zoom-in-down" data-aos-delay="300" data-aos-duration="1000">
-              I Nostri Nomi
-            </p>
-            <img class="img-fluid mt-1" src="images/laurel-1.png" alt="Heart" data-aos="zoom-in-down" data-aos-delay="300" data-aos-duration="1000">
-            <p class="h2 mt-5 ww-title" data-aos="zoom-in-down" data-aos-delay="300" data-aos-duration="1000" data-aos-offset="-10">
-              <sup>20</sup>th December, 2025
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Navigation -->
-      <div class="ww-nav-bar sticky-top bg-light">
-        <nav class="navbar navbar-expand-lg navbar-light">
-          <div class="container">
-            <a href="#" class="pl-4 navbar-brand">
-              <svg class="heart" viewBox="0 0 32 29.6">
-                <path d="M23.6,0c-3.4,0-6.3,2.7-7.6,5.6C14.7,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.4,9.5,11.9,16,21.2c6.1-9.3,16-12.1,16-21.2C32,3.8,28.2,0,23.6,0z"/>
-              </svg>
-              <h1 class="h2">I Nostri Sposi</h1>
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ww-navbarNav">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse text-uppercase" id="ww-navbarNav">
-              <ul class="navbar-nav ml-auto">
-                <li class="nav-item"><a class="nav-link smooth-scroll" href="#home">Home</a></li>
-                <li class="nav-item"><a class="nav-link smooth-scroll" href="#rsvp">RSVP</a></li>
-              </ul>
+<body class="bg-gradient" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); min-height: 100vh; padding: 50px 20px;">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="card shadow-lg border-0" style="background: rgba(0,0,0,0.8);">
+          <div class="card-body p-5 text-white">
+            <h1 class="text-center mb-4">🔍 RSVP DEBUG MODE</h1>
+            
+            <div id="debug-info" class="mb-4 p-3 bg-dark rounded">
+              <h5>📋 INFO DEBUG:</h5>
+              <div id="url-info"></div>
+              <div id="phone-info"></div>
             </div>
-          </div>
-        </nav>
-      </div>
-    </div>
-  </header>
-
-  <!-- RSVP Dinamico COMPLETO -->
-  <section class="ww-section ww-rsvp-detail text-white" id="rsvp" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
-    <div class="container" data-aos="zoom-in-up" data-aos-duration="1000">
-      <div class="row justify-content-center">
-        <div class="col-lg-10">
-          <div class="text-center mb-5">
-            <h2 class="h1 ww-title pb-3 mb-4" data-aos="zoom-in-down" data-aos-duration="1000">
-              <i class="fas fa-heart fa-2x mb-3 d-block"></i>Conferma Partecipazione
-            </h2>
-            <p class="lead" data-aos="fade-up" data-aos-delay="200">Clicca sul tuo link personale per confermare</p>
-          </div>
-          
-          <!-- Loading -->
-          <div id="rsvp-loading" class="text-center py-5">
-            <div class="spinner-border text-light mb-4" style="width: 4rem; height: 4rem;" role="status">
-              <span class="sr-only">Caricamento...</span>
+            
+            <div id="loading" class="text-center py-5">
+              <div class="spinner-border text-light mb-3" style="width: 3rem; height: 3rem;"></div>
+              <p class="h5" id="loading-text">Inizio debug...</p>
             </div>
-            <p class="h5 text-light mb-0">Caricamento inviti personalizzati...</p>
-          </div>
-          
-          <!-- Form Container -->
-          <div id="rsvp-form-container" style="display:none;">
-            <div class="card bg-dark bg-opacity-90 text-white border-0 shadow-lg">
-              <div class="card-body p-5">
-                <form id="dynamic-rsvp-form">
-                  <div id="family-members" class="mb-5"></div>
-                  
-                  <div class="row mt-5">
-                    <div class="col-12">
-                      <div class="form-group">
-                        <label for="message-input" class="form-label h6 fw-bold text-light mb-3">
-                          <i class="fas fa-edit me-2"></i>Messaggio/Note Speciali
-                        </label>
-                        <textarea class="form-control bg-light text-dark border-0 rounded-3 p-3" id="message-input" 
-                                  name="message" rows="4" placeholder="Diete speciali, richieste, auguri, preferenze tavolo... (opzionale)"></textarea>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div class="row mt-5">
-                    <div class="col text-center">
-                      <button type="submit" class="btn btn-primary btn-lg px-5 py-3 fw-bold btn-submit shadow-lg" style="font-size: 1.2rem;">
-                        <i class="fas fa-paper-plane me-2"></i>Invia Conferma Partecipazione
-                      </button>
-                    </div>
-                  </div>
-                </form>
-                
-                <!-- Success -->
-                <div id="rsvp-success" class="alert alert-success mt-5 p-5 rounded-4 shadow-lg" style="display:none;">
-                  <div class="row align-items-center">
-                    <div class="col-auto">
-                      <i class="fas fa-check-circle fa-4x text-success"></i>
-                    </div>
-                    <div class="col">
-                      <h3 class="mb-3 fw-bold">Conferma Inviata con Successo! ❤️</h3>
-                      <p class="h5 mb-4">Grazie! Abbiamo ricevuto la tua conferma. Non vediamo l'ora di festeggiare con voi!</p>
-                      <hr class="my-4">
-                      <div class="row">
-                        <div class="col-md-6">
-                          <small class="text-muted">
-                            <i class="fas fa-envelope me-2"></i>Riceverai conferma via email entro 24h
-                          </small>
-                        </div>
-                        <div class="col-md-6 text-end">
-                          <a href="#home" class="btn btn-outline-success btn-lg px-4">
-                            <i class="fas fa-home me-2"></i>Torna alla Home
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                
-                <div id="rsvp-error" class="alert alert-danger mt-4 p-4 rounded-3" style="display:none;"></div>
-              </div>
-            </div>
+            
+            <div id="results" style="display:none;"></div>
+            <div id="error" style="display:none;" class="alert alert-danger"></div>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- Footer -->
-  <footer class="ww-footer bg-light py-5">
-    <div class="container text-center">
-      <p class="my-0">&copy; 2025 I Nostri Sposi. All rights reserved.</p>
-      <p class="mb-0 small">Made with ❤️ per il giorno più bello</p>
-    </div>
-  </footer>
-
-  <!-- Scripts -->
-  <script src="scripts/jquery.min.js?ver=1.1.0"></script>
-  <script src="scripts/bootstrap.bundle.min.js?ver=1.1.0"></script>
-  <script src="scripts/aos.js?ver=1.1.0"></script>
-  <script src="scripts/ekko-lightbox.min.js?ver=1.1.0"></script>
-  <script src="scripts/main.js?ver=1.1.0"></script>
-
-  <!-- 🔥 RSVP Dinamico - I TUOI DATI ESATTI -->
   <script>
-    // ✅ CONFIGURAZIONE DEFINITIVA - I TUOI DATI
     const SHEET_ID = '1156skXZ20-rRUNHlLzlPP5zGvhXjdhQ1YfmBn-sAssU';
     const API_KEY = 'AIzaSyBAm-BeIXXGFRh1208WGvwxCyE0OICQmJ0';
     const SHEET_NAME = 'sposa';
 
-    $(document).ready(function() {
-      console.log('🚀 RSVP START - URL:', window.location.href);
+    // DEBUG COMPLETO
+    document.addEventListener('DOMContentLoaded', async function() {
+      const urlInfo = document.getElementById('url-info');
+      const phoneInfo = document.getElementById('phone-info');
+      const loading = document.getElementById('loading');
+      const loadingText = document.getElementById('loading-text');
+      const results = document.getElementById('results');
+      const errorDiv = document.getElementById('error');
       
-      if (window.location.hash === '#rsvp') {
-        const urlParams = new URLSearchParams(window.location.search);
-        const phoneId = urlParams.get('id');
-        console.log('📱 Phone ID:', phoneId);
-        
-        if (phoneId) {
-          loadFamilyData(phoneId);
-        } else {
-          showError('❌ Link non valido. Usa: ?id=32897643');
-        }
+      // 1. INFO URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const phone = urlParams.get('id');
+      const hash = window.location.hash;
+      
+      urlInfo.innerHTML = `<strong>URL:</strong> ${window.location.href}`;
+      phoneInfo.innerHTML = `
+        <strong>Hash:</strong> ${hash}<br>
+        <strong>Phone ID:</strong> ${phone || '❌ MANCANTE'}<br>
+        <strong>Testa con:</strong> ?id=32897643
+      `;
+      
+      if (!phone) {
+        showError('❌ NESSUN ID! Usa: https://tuosito.it/?id=32897643#rsvp');
+        return;
       }
       
-      AOS.init({ duration: 1200, once: true });
-    });
-
-    async function loadFamilyData(phone) {
+      if (hash !== '#rsvp') {
+        showError('❌ Usa #rsvp nel link!');
+        return;
+      }
+      
+      // 2. TEST API
+      loadingText.textContent = '🔄 Test API Google Sheets...';
       try {
-        updateLoading('🔄 Connessione Google Sheets...');
-        console.log('🌐 API URL:', `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${SHEET_NAME}?key=${API_KEY}`);
+        const apiUrl = `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${SHEET_NAME}?key=${API_KEY}`;
+        console.log('🌐 API URL:', apiUrl);
         
-        const response = await fetch(`https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${SHEET_NAME}?key=${API_KEY}`);
-        console.log('📡 Status:', response.status);
+        const response = await fetch(apiUrl);
+        console.log('📡 Response:', response.status, response.statusText);
         
         if (!response.ok) {
-          const errorText = await response.text();
-          throw new Error(`API ${response.status}: ${errorText.substring(0,100)}`);
+          throw new Error(`HTTP ${response.status}: ${response.statusText}`);
         }
         
         const data = await response.json();
-        console.log('✅ DATI:', data.values.slice(0,3)); // Prime 3 righe
+        console.log('✅ DATI:', data);
         
-        const family = parseFamilyData(data.values, phone);
+        loadingText.textContent = `📊 Dati OK! ${data.values?.length || 0} righe`;
+        
+        // 3. CERCA TELEFONO
+        const family = [];
+        const headers = data.values[0];
+        const rows = data.values.slice(1);
+        
+        console.log('🔍 Headers:', headers);
+        console.log('🔍 Cerco telefono:', phone);
+        
+        rows.forEach((row, index) => {
+          if (row[2] && row[2].toString().trim() === phone) {
+            console.log('✅ TROVATO!', row);
+            family.push({
+              row: index + 2,
+               row,
+              name: row[0],
+              surname: row[1],
+              phone: row[2]
+            });
+          }
+        });
+        
         console.log('👨‍👩‍👧‍👦 Famiglia:', family);
         
         if (family.length > 0) {
-          displayFamilyForm(family);
+          showResults(family, data.values);
         } else {
-          showError(`❌ Nessun invito trovato per <strong>${phone}</strong><br>Righe totali: ${data.values?.length || 0}`);
+          showError(`❌ Nessun match per ${phone}<br><strong>Telefoni nel sheet:</strong><br>` + 
+                   rows.slice(0,5).map(r => r[2]).join('<br>'));
         }
-      } catch (error) {
-        console.error('💥 ERRORE:', error);
-        showError(`❌ Errore caricamento: ${error.message}`);
-      }
-    }
-
-    function parseFamilyData(rows, phone) {
-      const family = [];
-      if (!rows || rows.length < 2) return family;
-      
-      console.log('🔍 Cerco telefono:', phone);
-      rows.slice(1).forEach((row, rowIndex) => {
-        if (row.length > 2 && row[2] && row[2].toString().trim() === phone) {
-          console.log('✅ MATCH:', row);
-          family.push({
-            row: rowIndex + 2,
-            name: row[0] || '',
-            surname: row[1] || '',
-            phone: row[2] || '',
-            head: row[3] === 'Sì',
-            family: row[4] || '',
-            type: row[5] || '',
-            confirmed: row[6] || 'No',
-            notes: row[7] || ''
-          });
-        }
-      });
-      return family;
-    }
-
-    function displayFamilyForm(family) {
-      $('#rsvp-loading').hide();
-      $('#rsvp-form-container').fadeIn(800);
-      
-      const headName = family.find(f => f.head)?.name || family[0].name;
-      let html = `
-        <div class="alert alert-info mb-5 border-0 rounded-4 shadow bg-opacity-75">
-          <div class="row align-items-center">
-            <div class="col-auto">
-              <i class="fas fa-users fa-2x"></i>
-            </div>
-            <div class="col">
-              <h4 class="alert-heading mb-2">Ciao <strong>${headName}!</strong></h4>
-              <p class="h5 mb-1">Conferma per <strong>${family.length}</strong> persone</p>
-              <p class="mb-2">Famiglia <strong>${family[0].surname}</strong></p>
-              <hr class="my-2">
-              <small class="text-white-50">Capofamiglia: ${headName}</small>
-            </div>
-          </div>
-        </div>
-      `;
-      
-      family.forEach((member, index) => {
-        const badgeClass = member.type?.includes('Bambino') ? 'bg-warning text-dark' : 'bg-success';
-        const badgeText = member.type?.includes('Bambino') ? '👶 BAMBINO' : '👨‍👩 ADULTO';
         
-        html += `
-          <div class="member-row row align-items-center mb-4 p-4 border rounded-4 bg-light bg-opacity-10 shadow-sm">
-            <div class="col-md-4 col-sm-12">
-              <h5 class="mb-1 fw-bold text-white">${member.name} ${member.surname}</h5>
-              <span class="badge ${badgeClass} fs-6 px-3 py-2">${badgeText}</span>
-              ${member.head ? '<span class="badge bg-primary ms-2 fs-6 px-3 py-2">👑 Capofamiglia</span>' : ''}
-            </div>
-            <div class="col-md-3 col-sm-6 text-md-center mt-3 mt-md-0">
-              <div class="form-check form-switch form-switch-lg">
-                <input class="form-check-input rsvp-checkbox shadow-sm" type="checkbox" 
-                       id="member_${index}" name="member_${index}" data-row="${member.row}"
-                       ${member.confirmed === 'Sì' ? 'checked' : ''}>
-                <label class="form-check-label text-white fw-bold fs-5" for="member_${index}">
-                  Partecipa
-                </label>
+      } catch (err) {
+        console.error('💥 ERRORE:', err);
+        showError(err.message);
+      }
+      
+      function showError(msg) {
+        loading.style.display = 'none';
+        errorDiv.innerHTML = `<h5>❌ ${msg}</h5><button class="btn btn-warning mt-2" onclick="location.reload()">🔄 Riprova</button>`;
+        errorDiv.style.display = 'block';
+      }
+      
+      function showResults(family, allData) {
+        loading.style.display = 'none';
+        results.style.display = 'block';
+        results.innerHTML = `
+          <div class="alert alert-success">
+            <h5>✅ TROVATO ${family.length} match!</h5>
+            ${family.map(f => `
+              <div class="p-3 bg-light text-dark rounded mt-2">
+                <strong>${f.name} ${f.surname}</strong><br>
+                📱 ${f.phone} | Riga ${f.row}
               </div>
-            </div>
-            <div class="col-md-5 col-sm-6">
-              <input type="text" class="form-control note-input bg-light text-dark border-0 rounded-3 shadow-sm fs-6 p-3" 
-                     name="note_${index}" data-row="${member.row}" 
-                     placeholder="Note (diete, intolleranze, richieste...)"
-                     value="${member.notes}">
-            </div>
-          </div>`;
-      });
-      
-      $('#family-members').html(html);
-    }
-
-    $(document).on('submit', '#dynamic-rsvp-form', async function(e) {
-      e.preventDefault();
-      
-      const confirmations = [];
-      $('.rsvp-checkbox').each(function() {
-        const $checkbox = $(this);
-        const index = $checkbox.attr('name').split('_')[1];
-        confirmations.push({
-          row: $checkbox.data('row'),
-          name: $checkbox.closest('.member-row').find('h5').text().trim(),
-          confirmed: $checkbox.is(':checked') ? 'Sì' : 'No',
-          note: $(`input[name="note_${index}"]`).val().trim()
-        });
-      });
-      
-      const message = $('#message-input').val().trim();
-      
-      console.log('📋 CONFERME:', confirmations);
-      console.log('💬 MESSAGGIO:', message);
-      
-      $('.btn-submit').prop('disabled', true).html('<i class="fas fa-spinner fa-spin me-2"></i>Invio...');
-      
-      setTimeout(() => {
-        $('.card-body form').slideUp(500);
-        $('#rsvp-success').fadeIn(500);
-        $('.btn-submit').prop('disabled', false);
-      }, 2000);
-    });
-
-    function updateLoading(text) {
-      $('#rsvp-loading p').html(text);
-    }
-
-    function showError(message) {
-      $('#rsvp-loading').html(`
-        <div class="alert alert-danger p-5 rounded-4 shadow-lg">
-          <h4 class="alert-heading mb-3">
-            <i class="fas fa-exclamation-triangle me-2 text-warning"></i>Attenzione
-          </h4>
-          <p class="h5 mb-4">${message}</p>
-          <div class="d-flex justify-content-center gap-3 flex-wrap">
-            <button class="btn btn-outline-light btn-lg" onclick="location.reload()">
-              <i class="fas fa-redo me-2"></i>Riprova
-            </button>
-            <a href="#home" class="btn btn-light btn-lg">
-              <i class="fas fa-home me-2"></i>Home
-            </a>
+            `).join('')}
           </div>
-        </div>
-      `);
-    }
+          <h6>Tutti i telefoni nel sheet (prime 10 righe):</h6>
+          <pre class="bg-dark text-white p-3 rounded small">${allData.slice(1,11).map(r => r[2]).join('\n')}</pre>
+        `;
+      }
+    });
   </script>
 </body>
 </html>
